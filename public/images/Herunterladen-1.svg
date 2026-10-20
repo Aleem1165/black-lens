@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
+  <g stroke="#FFFFFF" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Kameragehäuse -->
+    <rect x="3" y="7" width="13" height="10" rx="2"></rect>
+
+    <!-- Sucher/Griff -->
+    <path d="M16 9 L21 7.5 V16.5 L16 15 Z"></path>
+
+    <!-- Oberseite -->
+    <path d="M6 7V5.5H10V7"></path>
+
+    <!-- Objektiv -->
+    <circle cx="9.5" cy="12" r="2.6"></circle>
+    <circle cx="9.5" cy="12" r="1.2"></circle>
+
+    <!-- Knöpfe -->
+    <circle cx="14.2" cy="9.8" r="0.35" fill="#FFFFFF" stroke="none"></circle>
+    <circle cx="14.2" cy="12" r="0.35" fill="#FFFFFF" stroke="none"></circle>
+    <circle cx="14.2" cy="14.2" r="0.35" fill="#FFFFFF" stroke="none"></circle>
+  </g>
+</svg>

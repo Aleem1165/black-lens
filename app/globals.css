@@ -1,26 +1,121 @@
-@import "tailwindcss";
+@import url("https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Lexend:wght@100..900&display=swap");
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --_typography---font--body-font: "Instrument Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --_typography---font--heading-font: "Lexend", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* Ensure Webflow IX3 visibility hiding doesn't hide page elements */
+html.w-mod-js:not(.w-mod-ix3) :is(
+  .nav_container,
+  .section,
+  .footer,
+  h1, h2, h3, h4, h5, h6,
+  .heading_primary, .heading_secondary, .heading_tertiary, .heading_hero, .heading_small,
+  .subheading, .header p, .eyebrow,
+  .card, .content-block, [class*="image-ratio"],
+  .rich-text, .grid-item-manual, .list .list_item,
+  .form_block, .slider_arrow, .slider_nav, .w-tab-menu,
+  .ix-link-wrapper, .logo, .image_heading-inline, .divider
+),
+:is(
+  .nav_container,
+  .section,
+  .footer,
+  h1, h2, h3, h4, h5, h6,
+  .heading_primary, .heading_secondary, .heading_tertiary, .heading_hero, .heading_small,
+  .subheading, .header p, .eyebrow,
+  .card, .content-block, [class*="image-ratio"],
+  .rich-text, .grid-item-manual, .list .list_item,
+  .form_block, .slider_arrow, .slider_nav, .w-tab-menu,
+  .ix-link-wrapper, .logo, .image_heading-inline, .divider
+) {
+  visibility: visible !important;
+}
+
+/* Interactive elements transition */
+a, button, input, textarea {
+  transition: all 0.2s ease;
+}
+
+/* Radio button custom toggle */
+.radio_toggle.w--redirected-checked {
+  background-color: var(--_colors---core-accent-color--accent-primary, #f6e5ba) !important;
+  border-color: var(--_colors---core-accent-color--accent-primary, #f6e5ba) !important;
+  box-shadow: inset 0 0 0 3px #222224 !important;
+}
+
+/* Checkbox custom toggle */
+.w-checkbox-input--inputType-custom.w--redirected-checked {
+  background-color: #3898ec !important;
+  border-color: #3898ec !important;
+  background-image: url('https://d3e54v103j8qbb.cloudfront.net/static/custom-checkbox-checkmark.589d534424.svg') !important;
+  background-position: 50% !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+}
+
+/* Mega nav dropdown styling */
+.nav_dropdown-menu {
+  position: relative;
+}
+
+.mega-nav_dropdown-list.w--open,
+.nav_dropdown-list-1.w--open {
+  display: block !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  animation: fadeInDropdown 0.2s ease-out;
+}
+
+@keyframes fadeInDropdown {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Mobile responsive menu */
+@media screen and (max-width: 991px) {
+  .nav_menu.w-nav-menu.w--open {
+    display: block !important;
+    position: absolute !important;
+    top: 100% !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    background-color: var(--_colors---background-color--bg-primary, #222224) !important;
+    padding: 1.5rem !important;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5) !important;
+    z-index: 1000 !important;
+  }
+  .mega-nav_dropdown-list {
+    position: static !important;
+    width: 100% !important;
+    box-shadow: none !important;
+  }
+}
+
+/* Image cover helper */
+img.image_cover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }

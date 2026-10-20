@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
+  <g stroke="#FFFFFF" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Monitor -->
+    <rect x="3" y="5" width="18" height="12" rx="2"></rect>
+
+    <!-- Timeline -->
+    <path d="M6 14H18"></path>
+
+    <!-- Playhead -->
+    <path d="M12 8V15"></path>
+
+    <!-- Play -->
+    <path d="M9 9.5L11.8 11L9 12.5Z" fill="#FFFFFF" stroke="none"></path>
+
+    <!-- Color-Grading Regler -->
+    <circle cx="16.5" cy="9.5" r="0.8" fill="#FFFFFF" stroke="none"></circle>
+    <circle cx="16.5" cy="12.5" r="0.8" fill="#FFFFFF" stroke="none"></circle>
+  </g>
+</svg>
