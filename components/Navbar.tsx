@@ -10,6 +10,7 @@ export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const navRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
+  
 
   // Close menus on page change
   useEffect(() => {
@@ -569,6 +570,7 @@ export default function Navbar() {
           </nav>
         </div>
 
+        
         {/* Mobile menu hamburger button */}
         <div
           className={`nav_mobile-menu-button w-nav-button ${mobileMenuOpen ? "w--open" : ""}`}

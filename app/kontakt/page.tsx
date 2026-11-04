@@ -7,93 +7,137 @@ import ContactFormPage from "@/components/ContactFormPage";
 export const metadata: Metadata = {
   title: "Kontakt | BlackLens - Cinematic Filmmaking & Aerial Production",
   description:
-    "Lass uns filmisch starten. Minimal. Direkt. Schreib uns für Projekte im Bereich Filmproduktion, Drohnenaufnahmen und Schnitt & Colorgrading.",
-  openGraph: {
-    title: "Kontakt | BlackLens",
-    description: "Minimal. Direkt. Schreib uns für cineastische Projekte.",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Kontakt | BlackLens",
-    description: "Minimal. Direkt. Schreib uns für cineastische Projekte.",
-  },
+    "Lass uns etwas schaffen. Ein direkter Weg vom Interesse zur Anfrage. Filmproduktion, Luftaufnahmen und Schnitt.",
 };
 
 export default function KontaktPage() {
   return (
-    <>
+    <div style={{ backgroundColor: "#090A0C", minHeight: "100vh", color: "#F6F4F0" }}>
       <Navbar />
 
-      <section className="section">
-        <div className="container">
-          <div className="w-layout-grid grid_2-col gap-large">
-            <div className="grid-item-manual">
-              <div className="header margin-bottom_none">
-                <h1 className="heading_primary">Lass uns filmisch starten.</h1>
-                <div className="rich-text subheading w-richtext">
-                  <p>Minimal. Direkt. Schreib uns für Projekte.</p>
-                </div>
+      <main className="section" style={{ padding: "6rem 1.5rem 4rem" }}>
+        <div className="container" style={{ maxWidth: "1200px", margin: "0 auto" }}>
+          
+          {/* Breadcrumb / Category indicator from Slide 16 */}
+          <div style={{ marginBottom: "1.5rem", fontSize: "0.85rem", letterSpacing: "0.15em", color: "#ACB0B5", textTransform: "uppercase" }}>
+            BLACKLABS &nbsp;/&nbsp; BRAND &amp; DIGITAL &nbsp;/&nbsp; KONTAKT
+          </div>
+
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
+              gap: "3.5rem",
+              alignItems: "start",
+            }}
+          >
+            {/* Left Column: Direct studio channels from Slide 16 & 17 */}
+            <div>
+              <div style={{ marginBottom: "2.5rem" }}>
+                <h1
+                  style={{
+                    fontSize: "clamp(2.2rem, 5vw, 3.5rem)",
+                    lineHeight: "1.1",
+                    fontWeight: "700",
+                    letterSpacing: "-0.02em",
+                    marginBottom: "1rem",
+                    color: "#F6F4F0",
+                  }}
+                >
+                  LASS UNS<br />
+                  <span style={{ color: "#D9B899" }}>ETWAS SCHAFFEN.</span>
+                </h1>
+                <p style={{ color: "#ACB0B5", fontSize: "1.1rem", lineHeight: "1.6", maxWidth: "460px" }}>
+                  Kontakt: Einfach &amp; persönlich. Ein direkter Weg vom Interesse zur Anfrage. Lassen Sie uns gemeinsam etwas Einzigartiges erschaffen.
+                </p>
               </div>
-              <ul role="list" className="list gap-xsmall w-list-unstyled">
-                <li className="flex_horizontal gap-xxsmall margin-bottom_none">
-                  <div className="icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fill="none">
-                      <path
-                        d="M5.25 6.75H18.75V17.25H5.25V6.75Z"
-                        stroke="currentColor"
-                        strokeWidth="1.5"
-                        strokeLinejoin="round"
-                      ></path>
-                      <path
-                        d="M5.25 6.75L12 12L18.75 6.75"
-                        stroke="currentColor"
-                        strokeWidth="1.5"
-                        strokeLinejoin="round"
-                      ></path>
-                    </svg>
-                  </div>
-                  <a href="mailto:Office@blacklens.ch" className="text-link w-inline-block">
-                    <div className="text-link is-secondary">Office@blacklens.ch</div>
-                  </a>
-                </li>
-                <li className="flex_horizontal gap-xxsmall margin-bottom_none">
-                  <div className="icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fill="none">
-                      <path
-                        d="M12.5 18.25C16.2279 18.25 19.25 15.2279 19.25 11.5C19.25 7.77208 16.2279 4.75 12.5 4.75C8.77208 4.75 5.75 7.77208 5.75 11.5C5.75 12.6007 6.01345 13.6398 6.48072 14.5578L5 19L9.71819 17.6519C10.5664 18.0361 11.5082 18.25 12.5 18.25Z"
-                        stroke="currentColor"
-                        strokeWidth="1.5"
-                        strokeLinejoin="round"
-                      ></path>
-                    </svg>
-                  </div>
-                  <div>+41 79 726 74 56</div>
-                </li>
-                <li className="flex_horizontal gap-xxsmall margin-bottom_none">
-                  <div className="icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fill="none">
-                      <path
-                        d="M16.3918 14.8527C20.2489 10.9956 17.2769 4.25 12 4.25C6.72299 4.25 3.75102 10.9956 7.60817 14.8527L12 19.25L16.3918 14.8527Z"
-                        stroke="currentColor"
-                        strokeWidth="1.5"
-                        strokeLinejoin="round"
-                      ></path>
-                      <circle cx="12" cy="10.25" r="2" stroke="currentColor" strokeWidth="1.5"></circle>
-                    </svg>
+
+              {/* Direct Info List */}
+              <div style={{ display: "flex", flexDirection: "column", gap: "1.25rem" }}>
+                {/* Email */}
+                <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
+                  <div style={{ width: "36px", height: "36px", borderRadius: "50%", backgroundColor: "#17191C", display: "flex", alignItems: "center", justifyContent: "center", color: "#D9B899" }}>
+                    ✉
                   </div>
                   <div>
-                    Schweiz<br />AR
+                    <div style={{ fontSize: "0.8rem", color: "#ACB0B5", textTransform: "uppercase", letterSpacing: "0.08em" }}>E-Mail</div>
+                    <a href="mailto:office@blacklabs.ch" style={{ color: "#F6F4F0", textDecoration: "none", fontSize: "1.05rem", fontWeight: "500" }}>
+                      office@blacklabs.ch
+                    </a>
                   </div>
-                </li>
-              </ul>
+                </div>
+
+                {/* Phone */}
+                <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
+                  <div style={{ width: "36px", height: "36px", borderRadius: "50%", backgroundColor: "#17191C", display: "flex", alignItems: "center", justifyContent: "center", color: "#D9B899" }}>
+                    ☎
+                  </div>
+                  <div>
+                    <div style={{ fontSize: "0.8rem", color: "#ACB0B5", textTransform: "uppercase", letterSpacing: "0.08em" }}>Telefon</div>
+                    <a href="tel:+41797267456" style={{ color: "#F6F4F0", textDecoration: "none", fontSize: "1.05rem", fontWeight: "500" }}>
+                      +41 79 726 74 56
+                    </a>
+                  </div>
+                </div>
+
+                {/* Instagram */}
+                <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
+                  <div style={{ width: "36px", height: "36px", borderRadius: "50%", backgroundColor: "#17191C", display: "flex", alignItems: "center", justifyContent: "center", color: "#D9B899" }}>
+                    ◎
+                  </div>
+                  <div>
+                    <div style={{ fontSize: "0.8rem", color: "#ACB0B5", textTransform: "uppercase", letterSpacing: "0.08em" }}>Instagram</div>
+                    <a
+                      href="https://instagram.com/BlackLens.ch"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{ color: "#F6F4F0", textDecoration: "none", fontSize: "1.05rem", fontWeight: "500" }}
+                    >
+                      @BlackLens.ch
+                    </a>
+                  </div>
+                </div>
+
+                {/* Studio Location (Slide 17) */}
+                <div style={{ display: "flex", alignItems: "flex-start", gap: "1rem", marginTop: "0.5rem" }}>
+                  <div style={{ width: "36px", height: "36px", borderRadius: "50%", backgroundColor: "#17191C", display: "flex", alignItems: "center", justifyContent: "center", color: "#D9B899" }}>
+                    📍
+                  </div>
+                  <div>
+                    <div style={{ fontSize: "0.8rem", color: "#ACB0B5", textTransform: "uppercase", letterSpacing: "0.08em" }}>Studio</div>
+                    <div style={{ color: "#F6F4F0", fontSize: "1rem", lineHeight: "1.5" }}>
+                      Rickstrasse 6<br />
+                      9037 Speicherschwendi<br />
+                      Switzerland
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
 
-            <ContactFormPage />
+            {/* Right Column: Contact Form (Charcoal #17191C Card) */}
+            <div
+              style={{
+                backgroundColor: "#17191C",
+                padding: "clamp(1.5rem, 4vw, 2.5rem)",
+                borderRadius: "8px",
+                border: "1px solid rgba(255, 255, 255, 0.08)",
+              }}
+            >
+              <h2 style={{ fontSize: "1.4rem", fontWeight: "600", marginBottom: "0.5rem", color: "#F6F4F0" }}>
+                Projekt starten
+              </h2>
+              <p style={{ color: "#ACB0B5", fontSize: "0.9rem", marginBottom: "1.5rem" }}>
+                Füllen Sie das Formular aus und wir melden uns zeitnah mit ersten Ideen.
+              </p>
+
+              <ContactFormPage />
+            </div>
           </div>
         </div>
-      </section>
+      </main>
 
       <Footer />
-    </>
+    </div>
   );
 }
