@@ -3,58 +3,104 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="footer is-inverse">
-      <div className="container">
-        <h2 className="heading_hero">
-          Filmisch. Minimal. Kontakt aufnehmen.
-          <br />
-        </h2>
-        <Link href="/" aria-label="BlackLens Home">
-          <img
-            src="/images/LogoS.png"
-            loading="lazy"
-            width={575}
-            sizes="(max-width: 767px) 100vw, 575px"
-            alt="BlackLens"
-            srcSet="/images/LogoS-p-500.png 500w, /images/LogoS-p-800.png 800w, /images/LogoS.png 1024w"
-            className="image-3"
-          />
-        </Link>
-        <div className="flex_horizontal is-space-between tablet-vertical tablet-x-center gap-small margin-top_medium">
-          <a
-            href="https://blacklabs.ch"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="footer_link on-inverse w-inline-block"
-          >
-            <div className="paragraph_xlarge">A BlackLabs Company</div>
-          </a>
-          <ul
-            role="list"
-            className="flex_horizontal is-y-center is-x-center gap-xsmall is-wrap margin-bottom_none padding_none w-list-unstyled"
-          >
-            <li className="margin-bottom_none">
-              <a
-                href="https://www.tiktok.com/@blacklens.ch"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="footer_link on-inverse w-inline-block"
-              >
-                <div>Tiktok</div>
-              </a>
-            </li>
-            <li className="margin-bottom_none">
-              <a
-                href="https://www.instagram.com/blacklens.ch/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="footer_link on-inverse w-inline-block"
-              >
-                <div>Instagram</div>
-              </a>
-            </li>
-          </ul>
+    <footer className="bg-charcoal border-t border-white/10 text-warm-white py-16 px-4 sm:px-8 lg:px-12">
+      <div className="max-w-[1400px] mx-auto">
+        
+        {/* Main Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-12 pb-14 border-b border-white/10">
+          
+          {/* Col 1: Brand & Slogan */}
+          <div className="md:col-span-5 space-y-4">
+            <Link href="/" className="inline-block" aria-label="BlackLens Home">
+              <img
+                src="/images/LogoW.png"
+                alt="BlackLens Logo"
+                className="h-8 sm:h-9 w-auto object-contain"
+              />
+            </Link>
+            <p className="text-sm text-muted-grey font-body leading-relaxed max-w-sm">
+              Cineastische Filmproduktion, Drohnenaufnahmen und Schnitt &mdash; mit Leidenschaft für jedes Detail. A BlackLabs Company.
+            </p>
+            <div className="text-xs uppercase tracking-widest text-champagne font-semibold pt-1">
+              Speicherschwendi, Schweiz
+            </div>
+          </div>
+
+          {/* Col 2: Navigation Links */}
+          <div className="md:col-span-3 space-y-3">
+            <div className="text-xs uppercase tracking-[0.2em] text-champagne font-semibold mb-4">
+              NAVIGATION
+            </div>
+            <ul className="space-y-2 text-sm text-muted-grey font-body">
+              <li>
+                <Link href="/" className="hover:text-warm-white transition-colors">Startseite</Link>
+              </li>
+              <li>
+                <Link href="/projekte" className="hover:text-warm-white transition-colors">Projekte &amp; Portfolio</Link>
+              </li>
+              <li>
+                <Link href="/leistungen" className="hover:text-warm-white transition-colors">Unsere Leistungen</Link>
+              </li>
+              <li>
+                <Link href="/ueber-uns" className="hover:text-warm-white transition-colors">Über Timo &amp; Vision</Link>
+              </li>
+              <li>
+                <Link href="/kontakt" className="hover:text-warm-white transition-colors">Kontakt aufnehmen</Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Col 3: Direct Contact & Social */}
+          <div className="md:col-span-4 space-y-3">
+            <div className="text-xs uppercase tracking-[0.2em] text-champagne font-semibold mb-4">
+              KONTAKT &amp; SOCIAL
+            </div>
+            <div className="space-y-2.5 text-sm text-muted-grey font-body">
+              <div>
+                <a href="mailto:office@blacklabs.ch" className="hover:text-champagne transition-colors flex items-center gap-2">
+                  <span>✉</span> office@blacklabs.ch
+                </a>
+              </div>
+              <div>
+                <a href="tel:+41797267456" className="hover:text-champagne transition-colors flex items-center gap-2">
+                  <span>☎</span> +41 79 726 74 56
+                </a>
+              </div>
+              <div>
+                <a
+                  href="https://instagram.com/BlackLens.ch"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-champagne transition-colors flex items-center gap-2"
+                >
+                  <span>◎</span> @BlackLens.ch
+                </a>
+              </div>
+              <div>
+                <a
+                  href="https://blacklabs.ch"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-champagne transition-colors flex items-center gap-2"
+                >
+                  <span>&bull;</span> blacklabs.ch
+                </a>
+              </div>
+            </div>
+          </div>
+
         </div>
+
+        {/* Bottom Bar */}
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-muted-grey/70 font-body">
+          <div>
+            &copy; 2026 BlackLens. Alle Rechte vorbehalten.
+          </div>
+          <div className="text-muted-grey/50">
+            One vision. One brand. A cinematic presence.
+          </div>
+        </div>
+
       </div>
     </footer>
   );
