@@ -299,8 +299,8 @@ export default function HomePage() {
             <div className="lg:col-span-5">
               <div className="relative aspect-[4/5] rounded-xl overflow-hidden bg-charcoal border border-white/10 hover-zoom-cinematic">
                 <img
-                  src="/images/DSC01549.JPG"
-                  alt="Timo mit Kamera am Set"
+                  src="/images/timo-gear-sony-fx3.jpg"
+                  alt="Timo's Sony FX3 Cinema Kamera"
                   className="w-full h-full object-cover"
                 />
                 <div className="absolute bottom-0 inset-x-0 p-6 bg-gradient-to-t from-cinematic-black/90 to-transparent">
@@ -374,10 +374,26 @@ export default function HomePage() {
               { step: "03", title: "DREH", desc: "Regie, Kinematographie mit Sony FX3, Drohnenflüge, gezieltes Licht und Ton." },
               { step: "04", title: "SCHNITT", desc: "Schnittrhythmus, Colorgrading, Sounddesign, Soundscapes und finale Master-Lieferung." },
             ].map((p, idx) => (
-              <div key={idx} className="bg-charcoal border border-white/10 rounded-xl p-8 hover-zoom-cinematic">
-                <div className="text-3xl font-bold font-headline text-champagne mb-3">{p.step}</div>
-                <h3 className="text-lg font-headline font-semibold text-warm-white mb-2">{p.title}</h3>
-                <p className="text-sm text-muted-grey font-body leading-relaxed">{p.desc}</p>
+              <div
+                key={idx}
+                className="group relative overflow-hidden bg-charcoal border border-white/10 rounded-xl p-8 hover-zoom-cinematic hover:border-champagne/30 transition-all flex flex-col justify-between"
+              >
+                {/* Large Cinematic Watermark Number */}
+                <div
+                  aria-hidden="true"
+                  className="absolute top-3 right-6 text-7xl font-headline font-black text-white/[0.05] group-hover:text-champagne/15 transition-colors select-none pointer-events-none"
+                >
+                  {p.step}
+                </div>
+
+                <div className="relative z-10">
+                  <h3 className="text-xl font-headline font-bold text-warm-white group-hover:text-champagne transition-colors mb-3">
+                    {p.title}
+                  </h3>
+                  <p className="text-sm text-muted-grey font-body leading-relaxed">
+                    {p.desc}
+                  </p>
+                </div>
               </div>
             ))}
           </div>

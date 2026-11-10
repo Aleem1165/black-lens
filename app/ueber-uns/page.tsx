@@ -51,8 +51,8 @@ export default function UeberUnsPage() {
           <div className="lg:col-span-5">
             <div className="relative aspect-[4/5] rounded-lg overflow-hidden bg-charcoal border border-white/10 hover-zoom-cinematic">
               <img
-                src="/images/DSC01549.JPG"
-                alt="Timo mit Kamera am Set"
+                src="/images/timo-gear-sony-fx3.jpg"
+                alt="Timo's Sony FX3 Cinema Kamera"
                 className="w-full h-full object-cover"
               />
               <div className="absolute bottom-0 inset-x-0 p-6 bg-gradient-to-t from-cinematic-black/90 to-transparent">
@@ -71,18 +71,30 @@ export default function UeberUnsPage() {
         </div>
 
         {/* My Story Section (Slide 11 & 12) */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 py-16 border-t border-white/10 mb-20">
-          <div className="lg:col-span-4">
-            <div className="text-sm uppercase tracking-widest text-champagne mb-2">
-              01 / DIE STORY
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 py-16 border-t border-white/10 mb-20">
+          <div className="lg:col-span-5 flex flex-col justify-between">
+            <div>
+              <div className="text-xs uppercase tracking-[0.25em] text-champagne font-semibold mb-3">
+                DIE STORY
+              </div>
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-headline font-bold text-warm-white leading-tight">
+                Vom Experiment zur filmischen Leidenschaft.
+              </h2>
             </div>
-            <h2 className="text-2xl sm:text-3xl font-headline font-bold text-warm-white">
-              Vom Experiment zur filmischen Leidenschaft.
-            </h2>
+
+            {/* Editorial quote taken directly from Timo's bio */}
+            <div className="mt-8 pt-6 border-t border-white/10">
+              <blockquote className="text-lg sm:text-xl font-headline italic text-champagne/90 leading-relaxed border-l-2 border-champagne pl-4">
+                &bdquo;Was mit Neugier und einfachen Videos begann, ist &uuml;ber die Jahre zu einer echten Leidenschaft gewachsen.&ldquo;
+              </blockquote>
+              <div className="text-xs uppercase tracking-wider text-muted-grey mt-3 pl-4">
+                Timo &mdash; Gr&uuml;nder BlackLens
+              </div>
+            </div>
           </div>
 
-          <div className="lg:col-span-8 space-y-6 text-muted-grey text-base sm:text-lg leading-relaxed font-body">
-            <p>
+          <div className="lg:col-span-7 space-y-6 text-muted-grey text-base sm:text-lg leading-relaxed font-body">
+            <p className="text-warm-white/95 text-lg sm:text-xl leading-relaxed">
               Ich bin Timo, 21 Jahre alt, und interessiere mich seit meiner Kindheit für das Filmemachen. Was mit Neugier und einfachen Videos begann, ist über die Jahre zu einer echten Leidenschaft gewachsen.
             </p>
             <p>

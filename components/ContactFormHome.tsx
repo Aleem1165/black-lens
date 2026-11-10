@@ -73,8 +73,8 @@ export default function ContactFormHome() {
           </div>
 
           <div className="form_item is-half">
-            <label htmlFor="email-13" className="input_label">
-              E-Mail
+            <label htmlFor="email-13" translate="no" className="input_label">
+              Email
             </label>
             <input
               className="input_field w-input"
