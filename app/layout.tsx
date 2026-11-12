@@ -51,7 +51,7 @@ export default function RootLayout({
       className={`${instrumentSans.variable} ${lexend.variable}`}
     >
       <body className="bg-cinematic-black text-warm-white antialiased flex flex-col min-h-screen">
-        <ScrollToTop />
+        {/* <ScrollToTop /> */}
         <Navbar />
         <main className="flex-1">
           {children}
