@@ -43,26 +43,26 @@ export default function Navbar() {
         : "bg-cinematic-black/40 backdrop-blur-sm border-b border-white/5"
         }`}
     >
-      <div className="max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-10 h-20 flex items-center justify-between">
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-6 lg:px-10 h-20 flex items-center justify-between gap-4">
 
         {/* Brand Logo */}
-        <Link href="/" className="flex items-center gap-3" aria-label="BlackLens Home">
+        <Link href="/" className="flex items-center gap-3 shrink-0" aria-label="BlackLens Home">
           <img
             src="/images/LogoW.png"
             alt="BlackLens"
-            className="h-8 sm:h-9 w-auto object-contain"
+            className="h-7 sm:h-8 md:h-8 lg:h-9 w-auto object-contain"
           />
         </Link>
 
         {/* Desktop Navigation Links with animated hover underline */}
-        <nav className="hidden md:flex items-center gap-8">
+        <nav className="hidden md:flex items-center gap-4 md:gap-5 lg:gap-8 shrink-0">
           {navLinks.map((link) => {
             const isActive = pathname === link.href;
             return (
               <Link
                 key={link.href}
                 href={link.href}
-                className={`group relative py-2 text-xs uppercase tracking-[0.18em] font-medium transition-colors duration-200 ${isActive
+                className={`group relative py-2 text-xs uppercase tracking-wider lg:tracking-[0.18em] font-medium transition-colors duration-200 whitespace-nowrap ${isActive
                   ? "text-champagne font-semibold"
                   : "text-muted-grey hover:text-champagne"
                   }`}
@@ -76,14 +76,14 @@ export default function Navbar() {
         </nav>
 
         {/* Right CTA Button & Mobile Hamburger */}
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-3 sm:gap-4 shrink-0">
           <Link
             href="/kontakt"
-            className="hidden sm:inline-flex items-center gap-2 relative group bg-champagne text-cinematic-black font-semibold text-xs uppercase tracking-wider px-6 py-2.5 rounded transition-all duration-300 hover:opacity-90 hover:-translate-y-[1px] active:translate-y-0 active:scale-[0.98]"
+            className="hidden sm:inline-flex items-center gap-2 relative group bg-champagne text-cinematic-black font-semibold text-xs uppercase tracking-wider px-3.5 sm:px-4 lg:px-6 py-2.5 rounded transition-all duration-300 hover:opacity-90 hover:-translate-y-[1px] active:translate-y-0 active:scale-[0.98] whitespace-nowrap shrink-0"
           >
-            <span className="font-semibold leading-none">Projekt anfragen</span>
+            <span className="font-semibold leading-none whitespace-nowrap">Projekt anfragen</span>
             <svg
-              className="w-3.5 h-3.5 transition-transform duration-300 ease-out group-hover:translate-x-0.5"
+              className="w-3.5 h-3.5 transition-transform duration-300 ease-out group-hover:translate-x-0.5 shrink-0"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
