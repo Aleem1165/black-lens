@@ -7,10 +7,12 @@ export default function HeroEyebrow() {
   const subFull = "FILMPRODUKTION & DROHNENAUFNAHMEN";
 
   const [displayedBrand, setDisplayedBrand] = useState("");
+  const [brandLinesVisible, setBrandLinesVisible] = useState(false);
   const [showDot, setShowDot] = useState(false);
   const [displayedSub, setDisplayedSub] = useState("");
-  const [linesVisible, setLinesVisible] = useState(false);
+  const [isTypingSub, setIsTypingSub] = useState(false);
   const [typingComplete, setTypingComplete] = useState(false);
+  const [desktopLinesVisible, setDesktopLinesVisible] = useState(false);
 
   useEffect(() => {
     let brandIndex = 0;
@@ -24,26 +26,31 @@ export default function HeroEyebrow() {
       if (brandIndex >= brandFull.length) {
         clearInterval(brandInterval);
 
-        // Phase 2: Show center divider dot
+        // Phase 2: Animate in side hairlines flanking BLACKLENS on mobile & show dot for desktop
         setTimeout(() => {
+          setBrandLinesVisible(true);
           setShowDot(true);
 
-          // Phase 3: Type out "FILMPRODUKTION & DROHNENAUFNAHMEN"
-          const subInterval = setInterval(() => {
-            subIndex++;
-            setDisplayedSub(subFull.slice(0, subIndex));
+          // Phase 3: Type Line 2 ("FILMPRODUKTION & DROHNENAUFNAHMEN")
+          setTimeout(() => {
+            setIsTypingSub(true);
+            const subInterval = setInterval(() => {
+              subIndex++;
+              setDisplayedSub(subFull.slice(0, subIndex));
 
-            if (subIndex >= subFull.length) {
-              clearInterval(subInterval);
-              setTypingComplete(true);
+              if (subIndex >= subFull.length) {
+                clearInterval(subInterval);
+                setIsTypingSub(false);
+                setTypingComplete(true);
 
-              // Phase 4: Both side hairlines glide in from further out and settle
-              setTimeout(() => {
-                setLinesVisible(true);
-              }, 120);
-            }
-          }, 25);
-        }, 100);
+                // Phase 4 (Desktop Single-line): Animate in both side hairlines after full typing completes
+                setTimeout(() => {
+                  setDesktopLinesVisible(true);
+                }, 120);
+              }
+            }, 25);
+          }, 350);
+        }, 80);
       }
     }, 45);
 
@@ -53,52 +60,102 @@ export default function HeroEyebrow() {
   }, []);
 
   return (
-    <div className="inline-flex items-center justify-center gap-2.5 sm:gap-4 mb-8 text-[11px] sm:text-xs uppercase tracking-[0.24em] sm:tracking-[0.26em] font-medium min-h-[24px]">
-      {/* Left hairline: glides inward from further left and expands into place */}
-      <span
-        aria-hidden="true"
-        className={`hidden sm:inline-block h-px bg-gradient-to-r from-transparent to-champagne/60 transition-all duration-700 ease-out ${
-          linesVisible
-            ? "w-8 sm:w-14 opacity-100 translate-x-0"
-            : "w-0 opacity-0 -translate-x-8"
-        }`}
-      />
+    <div className="mb-5 sm:mb-8 min-h-[50px] md:min-h-[26px] flex flex-col items-center justify-center max-w-full px-2">
+      {/* ============================================================== */}
+      {/* MOBILE & TABLET LAYOUT (< md): Sequential 3-Step Animation      */}
+      {/* Step 1: "BLACKLENS" types out                                   */}
+      {/* Step 2: Lines animate in flanking ONLY BLACKLENS on Line 1      */}
+      {/* Step 3: "FILMPRODUKTION & DROHNENAUFNAHMEN" types on Line 2     */}
+      {/* Fixed line heights guarantee ZERO layout shift / push on h1     */}
+      {/* ============================================================== */}
+      <div className="flex md:hidden flex-col items-center justify-center text-center">
+        {/* Line 1: BLACKLENS + Flanking Hairlines on this same line */}
+        <div className="inline-flex items-center justify-center gap-2.5 sm:gap-3.5 h-6">
+          {/* Left Hairline flanking BLACKLENS */}
+          <span
+            aria-hidden="true"
+            className={`inline-block h-px bg-gradient-to-r from-transparent to-champagne/60 transition-all duration-500 ease-out shrink-0 ${
+              brandLinesVisible ? "w-6 sm:w-10 opacity-100" : "w-0 opacity-0"
+            }`}
+          />
 
-      {/* Brand Title */}
-      <span className="text-warm-white font-bold tracking-[0.28em] sm:tracking-[0.3em]">
-        {displayedBrand}
-      </span>
+          <span className="text-warm-white font-bold tracking-[0.24em] sm:tracking-[0.28em] text-[11px] sm:text-xs uppercase whitespace-nowrap leading-none">
+            {displayedBrand}
+            {displayedBrand.length < brandFull.length && (
+              <span
+                aria-hidden="true"
+                className="inline-block w-1 h-3 bg-champagne animate-pulse ml-0.5 align-middle"
+              />
+            )}
+          </span>
 
-      {/* Center Dot Divider */}
-      {showDot && (
-        <span className="text-champagne/40 font-light transition-opacity duration-300">
-          &bull;
-        </span>
-      )}
+          {/* Right Hairline flanking BLACKLENS */}
+          <span
+            aria-hidden="true"
+            className={`inline-block h-px bg-gradient-to-l from-transparent to-champagne/60 transition-all duration-500 ease-out shrink-0 ${
+              brandLinesVisible ? "w-6 sm:w-10 opacity-100" : "w-0 opacity-0"
+            }`}
+          />
+        </div>
 
-      {/* Category / Discipline */}
-      <span className="text-champagne tracking-[0.2em] sm:tracking-[0.22em] font-semibold">
-        {displayedSub}
-      </span>
+        {/* Line 2: FILMPRODUKTION & DROHNENAUFNAHMEN cleanly centered beneath */}
+        <div className="text-champagne tracking-[0.11em] sm:tracking-[0.18em] font-semibold text-[9px] sm:text-[11px] uppercase whitespace-nowrap mt-1.5 h-5 flex items-center justify-center leading-none">
+          {displayedSub}
+          {isTypingSub && (
+            <span
+              aria-hidden="true"
+              className="inline-block w-1 h-3 bg-champagne animate-pulse ml-0.5 align-middle"
+            />
+          )}
+        </div>
+      </div>
 
-      {/* Subtle typing cursor (active only while typing) */}
-      {!typingComplete && (
+      {/* ============================================================== */}
+      {/* DESKTOP LAYOUT (md+): Single Widescreen Row with Hairlines      */}
+      {/* First types full text, then both side hairlines animate in      */}
+      {/* ============================================================== */}
+      <div className="hidden md:inline-flex items-center justify-center text-xs uppercase tracking-[0.26em] font-medium whitespace-nowrap">
+        {/* Left Hairline - animates in smoothly after typing completes */}
         <span
           aria-hidden="true"
-          className="inline-block w-1.5 h-3.5 bg-champagne animate-pulse ml-0.5 align-middle"
+          className={`inline-block h-px bg-gradient-to-r from-transparent to-champagne/60 transition-all duration-700 ease-out shrink-0 ${
+            desktopLinesVisible ? "w-14 opacity-100 mr-4" : "w-0 opacity-0 mr-0"
+          }`}
         />
-      )}
 
-      {/* Right hairline: glides inward from further right and expands into place */}
-      <span
-        aria-hidden="true"
-        className={`hidden sm:inline-block h-px bg-gradient-to-l from-transparent to-champagne/60 transition-all duration-700 ease-out ${
-          linesVisible
-            ? "w-8 sm:w-14 opacity-100 translate-x-0"
-            : "w-0 opacity-0 translate-x-8"
-        }`}
-      />
+        {/* Brand */}
+        <span className="text-warm-white font-bold tracking-[0.3em]">
+          {displayedBrand}
+        </span>
+
+        {/* Center Dot Divider */}
+        {showDot && (
+          <span className="text-champagne/40 font-light mx-4">
+            &bull;
+          </span>
+        )}
+
+        {/* Category */}
+        <span className="text-champagne tracking-[0.22em] font-semibold">
+          {displayedSub}
+        </span>
+
+        {/* Typing Cursor */}
+        {!typingComplete && (
+          <span
+            aria-hidden="true"
+            className="inline-block w-1.5 h-3.5 bg-champagne animate-pulse ml-1 align-middle"
+          />
+        )}
+
+        {/* Right Hairline - animates in smoothly after typing completes */}
+        <span
+          aria-hidden="true"
+          className={`inline-block h-px bg-gradient-to-l from-transparent to-champagne/60 transition-all duration-700 ease-out shrink-0 ${
+            desktopLinesVisible ? "w-14 opacity-100 ml-4" : "w-0 opacity-0 ml-0"
+          }`}
+        />
+      </div>
     </div>
   );
 }
-

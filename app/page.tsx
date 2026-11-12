@@ -16,22 +16,11 @@ export const metadata: Metadata = {
 export default function HomePage() {
   return (
     <div className="bg-cinematic-black text-warm-white">
-      {/* 1. HERO SECTION: The First Impression (Slide 08 & 09) */}
       <HeroSection />
-
-      {/* 2. SERVICES OVERVIEW SECTION (Slide 10 & 14) */}
       <ServicesOverviewSection />
-
-      {/* 3. FEATURED PORTFOLIO SECTION (Slide 10 & 15) */}
       <FeaturedPortfolioSection />
-
-      {/* 4. ABOUT TIMO SNIPPET (Slide 10, 11 & 12) */}
       <AboutTimoSnippetSection />
-
-      {/* 5. PRODUCTION PROCESS (Slide 10 in German) */}
       <ProductionProcessSection />
-
-      {/* 6. CLOSING CTA BANNER: DESIGN 1 — SPLIT-SCREEN EDITORIAL STUDIO */}
       <ClosingCtaSection />
     </div>
   );

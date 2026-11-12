@@ -48,12 +48,12 @@ export default function RootLayout({
   return (
     <html
       lang="de"
-      className={`${instrumentSans.variable} ${lexend.variable}`}
+      className={`${instrumentSans.variable} ${lexend.variable} overflow-x-hidden`}
     >
-      <body className="bg-cinematic-black text-warm-white antialiased flex flex-col min-h-screen">
+      <body className="bg-cinematic-black text-warm-white antialiased flex flex-col min-h-screen overflow-x-hidden">
         {/* <ScrollToTop /> */}
         <Navbar />
-        <main className="flex-1">
+        <main className="flex-1 overflow-x-hidden">
           {children}
         </main>
         <Footer />

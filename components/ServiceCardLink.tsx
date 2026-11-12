@@ -27,6 +27,7 @@ export default function ServiceCardLink({
   return (
     <Link
       href="/leistungen"
+      scroll={false}
       onClick={handleClick}
       className={className}
       aria-label={ariaLabel}
@@ -35,4 +36,3 @@ export default function ServiceCardLink({
     </Link>
   );
 }
-

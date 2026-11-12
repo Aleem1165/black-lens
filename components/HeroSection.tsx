@@ -4,7 +4,7 @@ import HeroEyebrow from "@/components/HeroEyebrow";
 
 export default function HeroSection() {
   return (
-    <section className="relative min-h-[85vh] sm:min-h-[90vh] flex items-center justify-center px-4 sm:px-8 lg:px-12 overflow-hidden">
+    <section className="relative min-h-[auto] sm:min-h-[90vh] flex flex-col justify-start sm:justify-center items-center px-4 sm:px-8 lg:px-12 overflow-hidden">
       {/* Background Film Still with Cinematic Gradient Overlay */}
       <div className="absolute inset-0 z-0">
         <img
@@ -16,12 +16,12 @@ export default function HeroSection() {
       </div>
 
       {/* Hero Content */}
-      <div className="relative z-10 max-w-6xl mx-auto text-center py-16 sm:py-24">
+      <div className="relative z-10 max-w-6xl mx-auto text-center pt-6 pb-12 sm:py-24">
         {/* Animated Typing & Gliding Eyebrow */}
         <HeroEyebrow />
 
         {/* Main Headline: "Stories You Can Feel" in German */}
-        <h1 className="text-5xl sm:text-7xl md:text-8xl font-bold font-headline tracking-tight leading-[0.95] mb-6">
+        <h1 className="text-4xl sm:text-7xl md:text-8xl font-bold font-headline tracking-tight leading-[0.95] mb-6">
           GESCHICHTEN,<br />
           <span className="text-champagne">DIE MAN FÜHLT.</span>
         </h1>
@@ -32,14 +32,14 @@ export default function HeroSection() {
         </p>
 
         {/* Primary CTAs in German */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <div className="flex flex-col min-[540px]:flex-row items-center justify-center gap-3.5 sm:gap-4 w-full">
           <Link
             href="/kontakt"
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 group bg-champagne text-cinematic-black font-semibold uppercase tracking-wider px-8 py-4 rounded text-sm transition-all duration-300 hover:opacity-90 hover:-translate-y-[1px] active:translate-y-0 active:scale-[0.98]"
+            className="w-full min-[540px]:w-auto max-w-xs min-[540px]:max-w-none inline-flex items-center justify-center gap-2 group bg-champagne text-cinematic-black font-semibold uppercase tracking-wider px-7 sm:px-8 py-3.5 sm:py-4 rounded text-sm transition-all duration-300 hover:opacity-90 hover:-translate-y-[1px] active:translate-y-0 active:scale-[0.98] whitespace-nowrap"
           >
             <span>Projekt anfragen</span>
             <svg
-              className="w-4 h-4 transition-transform duration-300 ease-out group-hover:translate-x-0.5"
+              className="w-4 h-4 transition-transform duration-300 ease-out group-hover:translate-x-0.5 shrink-0"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -51,7 +51,7 @@ export default function HeroSection() {
           </Link>
           <Link
             href="/projekte"
-            className="w-full sm:w-auto border border-white/20 text-warm-white font-medium uppercase tracking-wider px-8 py-4 rounded text-sm hover:border-white/50 transition-colors"
+            className="w-full min-[540px]:w-auto max-w-xs min-[540px]:max-w-none inline-flex items-center justify-center border border-white/20 text-warm-white font-medium uppercase tracking-wider px-7 sm:px-8 py-3.5 sm:py-4 rounded text-sm hover:border-white/50 transition-colors whitespace-nowrap"
           >
             Arbeiten ansehen
           </Link>
@@ -60,3 +60,4 @@ export default function HeroSection() {
     </section>
   );
 }
+
