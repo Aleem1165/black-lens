@@ -43,6 +43,7 @@ export default function ContactFormPage() {
   const [budget, setBudget] = useState("");
   const [message, setMessage] = useState("");
   const [agree, setAgree] = useState(false);
+  const [companyWebsite, setCompanyWebsite] = useState("");
 
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
@@ -77,10 +78,23 @@ export default function ContactFormPage() {
     setBudget("");
     setMessage("");
     setAgree(false);
+    setCompanyWebsite("");
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+
+    // Anti-bot trap: real users won't fill hidden companyWebsite, automated spam bots will
+    if (companyWebsite.trim() !== "") {
+      setIsSubmitting(true);
+      setTimeout(() => {
+        setIsSubmitting(false);
+        setIsSuccess(true);
+        resetForm();
+      }, 400);
+      return;
+    }
+
     if (!name.trim() || !email.trim() || !projectType || !message.trim() || !agree) {
       setIsError(true);
       return;
@@ -98,6 +112,23 @@ export default function ContactFormPage() {
     <div className="w-full">
       {!isSuccess ? (
         <form onSubmit={handleSubmit} className="flex flex-col gap-6" noValidate>
+          {/* Disguised anti-spam field (hidden from view and screen readers) */}
+          <div
+            className="opacity-0 absolute -left-[9999px] -top-[9999px] pointer-events-none select-none h-0 w-0 overflow-hidden"
+            aria-hidden="true"
+            tabIndex={-1}
+          >
+            <label htmlFor="company_website">Company Website</label>
+            <input
+              type="text"
+              id="company_website"
+              name="company_website"
+              value={companyWebsite}
+              onChange={(e) => setCompanyWebsite(e.target.value)}
+              tabIndex={-1}
+              autoComplete="off"
+            />
+          </div>
           
           {/* Name Field */}
           <div className="relative">

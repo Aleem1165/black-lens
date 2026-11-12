@@ -9,6 +9,21 @@ const nextConfig: NextConfig = {
         destination: "/ueber-uns",
         permanent: true,
       },
+      {
+        source: "/projects",
+        destination: "/projekte",
+        permanent: true,
+      },
+      {
+        source: "/services",
+        destination: "/leistungen",
+        permanent: true,
+      },
+      {
+        source: "/contact",
+        destination: "/kontakt",
+        permanent: true,
+      },
     ];
   },
   experimental: {
