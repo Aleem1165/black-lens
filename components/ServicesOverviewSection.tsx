@@ -6,20 +6,21 @@ export default function ServicesOverviewSection() {
   return (
     <section className="py-20 px-4 sm:px-8 lg:px-12 border-t border-white/5">
       <div className="max-w-[1400px] mx-auto">
-        <div className="text-center sm:text-left mb-8 sm:mb-12">
-          {/* Eyebrow Row: on sm+ link is on the right across from the eyebrow */}
-          <div className="flex items-center justify-center sm:justify-between mb-2 sm:mb-3 gap-4">
-            <div className="text-xs uppercase tracking-[0.25em] text-champagne font-semibold">
+        <div className="mb-8 sm:mb-12">
+          {/* Split Top Eyebrow Row: LEISTUNGEN on left, View All on right */}
+          <div className="flex items-center justify-between mb-3 gap-2">
+            <div className="text-[11px] sm:text-xs uppercase tracking-[0.2em] sm:tracking-[0.25em] text-champagne font-semibold shrink-0">
               LEISTUNGEN
             </div>
-            {/* Desktop link on top line (sm+) */}
+
             <Link
               href="/leistungen"
-              className="hidden sm:inline-flex text-xs uppercase tracking-wider text-muted-grey hover:text-champagne transition-colors items-center gap-1.5 group whitespace-nowrap"
+              className="text-[11px] sm:text-xs uppercase tracking-wider text-muted-grey hover:text-champagne transition-colors inline-flex items-center gap-1.5 group whitespace-nowrap shrink-0"
             >
-              <span>Alle Leistungen ansehen</span>
+              <span className="sm:hidden">Alle ansehen</span>
+              <span className="hidden sm:inline">Alle Leistungen ansehen</span>
               <svg
-                className="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-1 shrink-0"
+                className="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-1 shrink-0 text-champagne/80 group-hover:text-champagne"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -31,30 +32,10 @@ export default function ServicesOverviewSection() {
             </Link>
           </div>
 
-          {/* Heading: Centered on mobile, Left on desktop */}
+          {/* Heading */}
           <h2 className="text-3xl sm:text-5xl font-headline font-bold text-warm-white">
             Drei Disziplinen. Ein gemeinsames Ziel.
           </h2>
-
-          {/* Mobile-only Link beneath heading */}
-          <div className="sm:hidden mt-3 flex justify-center">
-            <Link
-              href="/leistungen"
-              className="inline-flex text-xs uppercase tracking-wider text-champagne font-semibold items-center gap-1.5 group py-1"
-            >
-              <span>Alle Leistungen ansehen</span>
-              <svg
-                className="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-1 shrink-0"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth="2"
-                aria-hidden="true"
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-              </svg>
-            </Link>
-          </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
