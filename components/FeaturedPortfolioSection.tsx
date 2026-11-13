@@ -49,25 +49,27 @@ export default function FeaturedPortfolioSection() {
 
             <Link
               href="/projekte"
-              className="text-[11px] sm:text-xs uppercase tracking-wider text-muted-grey hover:text-champagne transition-colors inline-flex items-center gap-1.5 group whitespace-nowrap shrink-0"
+              className="text-[11px] sm:text-xs uppercase tracking-wider text-muted-grey hover:text-champagne transition-colors inline-flex items-center gap-1.5 group whitespace-nowrap shrink-0 leading-none"
             >
               <span className="sm:hidden">Alle Arbeiten</span>
               <span className="hidden sm:inline">Alle Arbeiten ansehen</span>
-              <svg
-                className="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-1 shrink-0 text-champagne/80 group-hover:text-champagne"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth="2"
-                aria-hidden="true"
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-              </svg>
+              <span className="inline-flex items-center -translate-y-[1px] shrink-0">
+                <svg
+                  className="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-1 text-champagne/80 group-hover:text-champagne"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  aria-hidden="true"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                </svg>
+              </span>
             </Link>
           </div>
 
-          {/* Heading */}
-          <h2 className="text-3xl sm:text-5xl font-headline font-bold text-warm-white">
+          {/* Heading: Centered on mobile & when 2 lines (< lg), Left-aligned on 1 line (lg+) */}
+          <h2 className="text-3xl sm:text-5xl font-headline font-bold text-warm-white text-center lg:text-left">
             Bilder, die im Gedächtnis bleiben.
           </h2>
         </div>
